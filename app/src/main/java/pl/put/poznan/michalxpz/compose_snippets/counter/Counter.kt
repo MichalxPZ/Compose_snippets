@@ -15,14 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun CounterRotationSensitive() {
+fun CounterWithStateInside() {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // wartość timesClicked zostanie zresetowana przy zmianie orientacji
-        var timesClicked by remember { mutableStateOf(0) }
+        var timesClicked by rememberSaveable { mutableStateOf(0) }
         Text(text = "Clicked: $timesClicked")
         Button(onClick = { timesClicked++ }) {
             Text(text = "Click me")
@@ -31,16 +30,26 @@ fun CounterRotationSensitive() {
 }
 
 @Composable
-fun CounterRotationAware() {
+fun CounterState() {
+    var timesClicked by rememberSaveable { mutableStateOf(0) }
+    Counter(timesClicked){
+        timesClicked++
+    }
+}
+
+@Composable
+fun Counter(
+    timesClicked: Int,
+    onButtonClicked: (() -> Unit)
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // wartość timesClicked utrzyma się przy zmianie orientacji
-        var timesClicked by rememberSaveable { mutableStateOf(0) }
+
         Text(text = "Clicked: $timesClicked")
-        Button(onClick = { timesClicked++ }) {
+        Button(onClick = onButtonClicked ) {
             Text(text = "Click me")
         }
     }

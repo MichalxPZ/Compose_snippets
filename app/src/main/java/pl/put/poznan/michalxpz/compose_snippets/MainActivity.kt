@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import pl.put.poznan.michalxpz.compose_snippets.counter.Counter
+import pl.put.poznan.michalxpz.compose_snippets.counter.CounterState
 import pl.put.poznan.michalxpz.compose_snippets.ui.theme.Compose_snippetsTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,12 +19,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Compose_snippetsTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Counter()
+                    CounterState()
                 }
             }
         }
