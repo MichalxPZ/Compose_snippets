@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import pl.put.poznan.michalxpz.mocks.names
 
 @Composable
 fun MyList(names: List<String>) {
@@ -46,6 +47,5 @@ fun MyList(names: List<String>) {
 @Preview(showBackground = true)
 @Composable
 fun MyListPreview() {
-    val names = listOf("Basia", "Kasia", "Ola", "Bartek", "Michał", "Klaudia")
     MyList(names)
 }

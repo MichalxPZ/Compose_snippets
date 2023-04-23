@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import pl.put.poznan.michalxpz.compose_snippets.list.MyList
 import pl.put.poznan.michalxpz.compose_snippets.ui.theme.Compose_snippetsTheme
+import pl.put.poznan.michalxpz.mocks.names
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyList(names = listOf("Basia", "Kasia", "Ola", "Bartek", "Michał", "Klaudia"))
+                    MyList(names = names)
                 }
             }
         }
@@ -35,6 +36,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ListPreview() {
     Compose_snippetsTheme {
-        MyList(names = listOf("Basia", "Kasia", "Ola", "Bartek", "Michał", "Klaudia"))
+        MyList(names = names)
     }
 }
